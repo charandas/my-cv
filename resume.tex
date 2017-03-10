@@ -1,0 +1,194 @@
+%% start of file `resume.tex'.
+
+% possible options include font size ('10pt', '11pt' and '12pt'),
+% paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper',
+%'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[11pt,letter,roman]{moderncv}
+% set input encoding
+% \usepackage[utf8]{inputenc}
+\usepackage[EU1]{fontenc}
+% URW Garamond
+%\renewcommand{\rmdefault}{ugm}
+% URW Classico (Optima)
+%\renewcommand{\sfdefault}{uop}
+% Enable bold garamond, smallcaps
+%\usepackage{garamondx}
+% add multi-column support
+\usepackage{multicol}
+% block comment support
+\usepackage{verbatim}
+
+% moderncv themes
+% style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvstyle{banking}
+% color options 'blue' (default), 'orange', 'green', 'red',
+% 'purple', 'grey' and 'black'
+\moderncvcolor{green}
+% to set the default font; use '\sfdefault' for the default sans serif font,
+% '\rmdefault' for the default roman one, or any tex font name
+\renewcommand{\familydefault}{\rmdefault}
+% uncomment to suppress automatic page numbering for CVs longer than one page
+\nopagenumbers{}
+
+% adjust the page margins
+\usepackage[scale=0.815]{geometry}
+% if you want to change the width of the column with the dates
+\setlength{\hintscolumnwidth}{3cm}
+
+\definecolor{NavyBlue}{cmyk}{0.94,0.54,0,0}
+
+% insert personally identifiable information (name, address, etc.)
+\input{pii.tex}
+
+\AtBeginDocument{\hypersetup{colorlinks, urlcolor=NavyBlue}}
+%-----        content     ----------------------------------------------------
+\begin{document}
+%-----       resume       ----------------------------------------------------
+\makecvtitle{}
+\vspace{-\baselineskip}
+
+\section{\textsc{About Me}}
+A Senior Web Applications Engineer with proven experience.
+
+\vspace{\baselineskip}
+Motivating Factors: fascination and devotion similar to how its expressed in Nigel Poulton\'s Docker Deep Dive course on Pluralsight.
+On the personal side, I embrace differences among peoples and care to make a low footprint on the planet.
+
+\section{\textsc{Education}}
+\label{sec:Education}
+\cventry{Graduated 2008}{Bachelor of Science (B.S.)}
+{North Dakota State College of Engineering}{Fargo, ND}{GPA: 3.278}
+{Major: Electrical Engineering}
+
+\vspace{\baselineskip}
+\cventry{Jan 2008 -- December 2008}{Lab Teaching Assistant}{NDSU Electrical and Computer Engineering}{Fargo, ND}{}{
+\begin{itemize}
+	\item Led the lab for ECE 443, the course on Telecommunications and Applied Signals Theory
+	\item Graded lab homework and report
+	\item Prepared materials to help students in addition to Instructor provided materials
+	\item Loved typesetting in \LaTeX2e
+\end{itemize}
+}
+
+
+\section{\textsc{Technical Skills}}
+\cvitem{Languages (Proficient)}{ Javascript (nodejs, ES6, Babel) }
+\cvitem{Languages (Basic)}{Go, C, C++, Python, Ruby, SQL, Bash scripting, Lua}
+\cvitem{Cloud Services}{Google Cloud Platform, Digital Ocean}
+\cvitem{Orchestration}{Docker, Kubernetes, DC/OS}
+\cvitem{Infrastructure Tools}{Consul, Nginx, Ansible, Terraform, Vault, Letsencrypt/ACME, Jenkins}
+\cvitem{Productivity}{Dropbox Paper, Keynote, Microsoft Office, \LaTeX2e}
+
+\newpage
+\section{\textsc{Work Experience}}
+
+\cventry{Aug 2015 -- Present}{CEO, Principal Consultant}{Human Flow S.C.}{S Portland, ME}{}{
+\begin{itemize}
+	\vspace{\baselineskip}
+	\item AceCaliber LLC. \hfill \textit{Feb 2017 -- Present}
+		\begin{itemize}
+			\item Convert legacy requirejs/angular app to use modern tooling (JSPM, ES6)
+			\item Update Electron setup for kiosk app to use layered config and rollup (ES6)
+		\end{itemize}
+	\vspace{\baselineskip}
+	\item Fathm, inc. \hfill \textit{Dec 2016 -- Present}
+		\begin{itemize}
+			\item Worked principally on guiding a small company in having a functioning dev environment with a CI/CD pipeline
+			\item Wrote Jenkins pipeline automation scripts in Groovy for basic things (docker build/publish and npm tasks)
+			\item Automated Jenkins server provisioning with automatic job discovery against Gitlab groups
+			\item Evaluated several orchestration engines (kubernetes, DC/OS et cetera)
+			\item Converted private npm libraries from babel to rollup/buble
+		\end{itemize}
+	\vspace{\baselineskip}
+	\item Under Armour Ecommerce Team \hfill \textit{Dec 2015 -- Nov 2016}
+		\begin{itemize}
+			\item Worked principally on APIs and microservices (written in nodejs)
+			\item Defined and maintained microservices contracts in form of RPC Protobufs, and API contracts in form of swagger specs, keeping backwards compatibility in mind
+			\item Acted as a developer and recognized maintainer of customer data, order history and authentication APIs (latter, driven by a SSO strategy) and associated services
+			\begin{itemize}
+				\item Despite not being recognized as an owner on the latter due to team structure, I was considered an in-house expert and go-to for authentication APIs
+				\item {\em Note}: authentication included standard login but also Facebook oAuth flow
+			\end{itemize}
+			\item Added order history fetching using Raw SQL in Order Management Service, and profiled the same for performance.
+			\item Updated \href{https://www.underarmour.com}{www.underarmour.com} to use the new auth flows
+			\item Communicated with mobile teams for UA Shop App (both iOS and Android), and maintained usage documentation for the apis in addition to the published swagger docs
+		\end{itemize}
+	\vspace{\baselineskip}
+	\item North Star Memorial Group \hfill \textit{October 2015 -- Nov 2015}
+		\begin{itemize}
+			\item Added features for the CMS driving \href{https://www.eternalresorts.com}{www.eternalresorts.com}
+			\item Principally, an Amazon S3 based document browser using angular and .NET backend
+			\item Extracted design assets from PSDs and updated the website copy and look-and-feel
+		\end{itemize}
+	\vspace{\baselineskip} % does not like newlines around this: thinks cventry completed prematurely
+	\item Acecaliber LLC \hfill \textit{Aug 2015 -- Sep 2015}
+		\begin{itemize}
+			\item Since the product took a new name, continued where we left off at City Corridor.
+			\item Integrated Electron as a replacement for Chrome to have more control over kiosk production environment.
+			\item Wrote a reporting application in nodejs for an e-commerce client based on \href{https://keen.io}{keen.io}.
+		\end{itemize}
+	\end{itemize}
+}
+
+\vspace{\baselineskip}
+
+\cventry{Mar 2014 -- April 2015}{Software Engineer}{City Corridor}{Charleston, S Carolina}{}{
+\begin{itemize}
+		\item Lead frontend engineering for a secure distributed sales and advertising kiosk platform
+		\begin{itemize}
+			\item Converted angular app to use ui-router and lazy-load modules based on JSON config
+			\item Maintained Mixpanel metrics tracking user's behavior and ad popularity
+			\item Maintained Google maps integration for street direction printing purposes
+			\item Authored a fully featured POS solution customizable for various clients (for sports arenas, amusement parks, shopping malls)
+		\end{itemize}
+		\item Mentored designer on team in writing angular templates that work with ui-router, as well as provided general direction for keeping things modular, configurable and extensible
+		\item Primarily developed in node.js and \href{http://angular.io}{angularjs}
+\end{itemize}
+}
+
+\newpage
+
+\cventry{May 2013 -- Sep 2013}{Systems Engineer}{Blizzard Entertainment}{Irvine, CA}{}{
+\begin{itemize}
+		\item DevOps and Systems engineering on Battle.net Team at Blizzard
+		\item Primarily developed in Python, and JavaScript
+\end{itemize}
+}
+
+\vspace{\baselineskip}
+
+\cventry{Jan 2012 -- Apr 2013}{Embedded Software Engineer}{Teradek}{Irvine, CA}{}{
+\begin{itemize}
+		\item Consumed \href{https://livestream.com/broadcaster}{Livestream} and \href{http://www.ustream.tv/}{Ustream} RESTful APIs in order to allow user to make recordings display
+		on their profile timelines (worked rigourously with both Livestream and Ustream teams during integration)
+		\item Worked with video standards and developed add-on \href{http://teradek.com/pages/cube}{equipment} used by leading Hollywood filmmakers and news channels
+		\item Wrote evented code that drove the UX on various video \href{http://teradek.com/pages/bonding-solutions}{devices}
+		\item Primarily developed in C and Lua
+	\end{itemize}
+}
+
+\vspace{\baselineskip}
+
+\cventry{Mar 2011 -- Jan 2012}{Consultant}{Intel Corp.}{Chandler, AZ}{}{
+\begin{itemize}
+		\item Systems Programming delivering an SDK for Intel Atom that drives SmartTVs
+		\item Communicated regularly with remote as well as offshore teams on software releases and honed debugging, troubleshooting, and communication skills
+		\item Implemented embedded linux drivers that implemented clocking scheme for the video application across the board
+		\item Primarily developed in C
+\end{itemize}
+}
+
+\vspace{\baselineskip}
+
+\cventry{Jan 2009 -- Jan 2011}{Embedded Software Engineer}{Appareo Systems}{Fargo, ND}{}{
+\begin{itemize}
+		\item Worked in the Aerospace Industry on safety products such as flight data \href{https://www.appareo.com/aviation/customer-use-cases/}{recorders} and cockpit cameras
+		\item Used test-driven development, implemented image processing algorithms, and interfaced with software teams from client companies on collaborative ventures
+		\item Troubleshot bottlenecks in the system for achieving timing and throughput
+		requirements
+		\item Primarily developed in C and C++
+\end{itemize}
+}
+
+\end{document}
+%% end of file `resume.tex'.
