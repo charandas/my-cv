@@ -70,34 +70,56 @@ On the personal side, I embrace differences among peoples and care to make a low
 \end{itemize}
 }
 
-
 \section{\textsc{Technical Skills}}
 \cvitem{Languages (Proficient)}{ Javascript (nodejs, ES6, Babel) }
 \cvitem{Languages (Basic)}{Go, C, C++, Python, Ruby, SQL, Bash scripting, Lua}
-\cvitem{Cloud Services}{Google Cloud Platform, Digital Ocean}
-\cvitem{Orchestration}{Docker, Kubernetes, DC/OS}
-\cvitem{Infrastructure Tools}{Consul, Nginx, Ansible, Terraform, Vault, Letsencrypt/ACME, Jenkins}
+\cvitem{Cloud Services}{AWS, GCP}
+\cvitem{Orchestration}{Docker, Kubernetes, Kubespray, Ansible, EKS}
+\cvitem{Infrastructure Tools}{Nginx, Terraform, Letsencrypt/ACME, Jenkins, Spinnaker}
 \cvitem{Productivity}{Dropbox Paper, Keynote, Microsoft Office, \LaTeX2e}
+\cvitem{Misc}{gRPC, protobuf, istio, envoy}
 
 \newpage
 \section{\textsc{Work Experience}}
 
-\cventry{Aug 2015 -- Present}{CEO, Principal Consultant}{Human Flow S.C.}{S Portland, ME}{}{
+\cventry{April 2019 -- March 2020}{Platform Engineer}{Lucky Day Entertainment}{Beverly Hills, CA (Remote)}{}{
+  \begin{itemize}
+  \item Rolled out passwordless auth using AWS cognito and helped Android engineers implement the custom auth mechanism
+  \item Participated in code-reviews on all fronts (mobile and backend) until the team sized up enough to free me of these duties
+  \item Designed and implemented the deployment strategy for containerized workloads
+  \item Informed wireformat (protobuf) strategy for mobile app's communication to the backend (written in go)
+  \item Wrote automation to generate proto packages for Java, Swift and Go in Jenkins CI and autogenerate and maintain github repos using hub/repo-templates
+  \item Worked on spinnaker deployments for continuous delivery from AWS ECR, and delivered a working solution to developers and testers
+  \item Worked on KYC implementation in go using CognitoHQ API (my only real coding work while at this org)
+  \item Worked with SRE personnel in establishing all needs are met for containerized workloads. Rolled out use of kustomize for the same.
+  \item Informed the private CA / PKI based decisions to have the internal tools use an internal TLD thus having all internal communications be TLS secured.
+  \item Rolled out bazel strategy on CI for golang/nodejs projects
+  \item Initially rolled out heptio/contour as our ingress gateway with Letsencrypt support to expose gRPC services publicly for the mobile app
+  \item Helped in rollout of istio/ingress-gateway which replaced heptio/contour as our ingress
+  \item Provisioned AWS MSK as a working Kafka for development team using TLS auth, until the team switched to pulsar
+  \end{itemize}
+}
+
+\cventry{May 2017 -- April 2019}{Software Engineer}{Ace Caliber LLC.}{Washington D.C. (Remote)}{}{
+  \begin{itemize}
+  \vspace{\baselineskip}
+  \item Asurity Technologies, Inc. \hfill \textit{May 2017 -- Apr 2019}
+    \begin{itemize}
+			\item Performed fullstack work on mapping frontend apps powered by mapnik in the backend (nodejs) in the RegTech industry
+			\item Designed and implemented the CI/CD pipeline for these apps in docker/kubernetes running on on-prem infrastructure in vSphere
+      \item Terraformed the vSphere resources and applied jssonnet to get beyond any terraform limitations at the timelines
+      \item Used kubespray extensively in maintaining and upgrading the on-prem k8s clusters
+		\end{itemize}
+  \end{itemize}
+}
+
+\cventry{Aug 2015 -- Apr 2017}{CEO, Principal Consultant}{Human Flow S.C.}{S Portland, ME}{}{
 \begin{itemize}
 	\vspace{\baselineskip}
-	\item AceCaliber LLC. \hfill \textit{Feb 2017 -- Present}
+	\item AceCaliber LLC. \hfill \textit{Feb 2017 -- Apr 2017}
 		\begin{itemize}
 			\item Convert legacy requirejs/angular app to use modern tooling (JSPM, ES6)
 			\item Update Electron setup for kiosk app to use layered config and rollup (ES6)
-		\end{itemize}
-	\vspace{\baselineskip}
-	\item Fathm, inc. \hfill \textit{Dec 2016 -- Present}
-		\begin{itemize}
-			\item Worked principally on guiding a small company in having a functioning dev environment with a CI/CD pipeline
-			\item Wrote Jenkins pipeline automation scripts in Groovy for basic things (docker build/publish and npm tasks)
-			\item Automated Jenkins server provisioning with automatic job discovery against Gitlab groups
-			\item Evaluated several orchestration engines (kubernetes, DC/OS et cetera)
-			\item Converted private npm libraries from babel to rollup/buble
 		\end{itemize}
 	\vspace{\baselineskip}
 	\item Under Armour Ecommerce Team \hfill \textit{Dec 2015 -- Nov 2016}
