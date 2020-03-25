@@ -18,6 +18,13 @@
 % block comment support
 \usepackage{verbatim}
 
+\usepackage{lastpage}
+\rfoot{\addressfont\itshape\textcolor{gray}{Page \thepage\ of \pageref{LastPage}}}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Path = /usr/local/texlive/2019/texmf-dist/fonts/opentype/public/fontawesome/}
+\usepackage{fontawesome}
+
 % moderncv themes
 % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
 \moderncvstyle{banking}
@@ -48,11 +55,11 @@
 \vspace{-\baselineskip}
 
 \section{\textsc{About Me}}
-A Senior Web Applications Engineer with proven experience.
+A Senior Web Applications Engineer with proven experience who doesn't mind dipping their toes in DevOps.
 
 \vspace{\baselineskip}
-Motivating Factors: fascination and devotion similar to how its expressed in Nigel Poulton\'s Docker Deep Dive course on Pluralsight.
-On the personal side, I embrace differences among peoples and care to make a low footprint on the planet.
+Motivating Factors: fascination with life and devotion to detail. I also embrace differences among peoples
+and care to make a low footprint on the planet.
 
 \section{\textsc{Education}}
 \label{sec:Education}
@@ -71,41 +78,59 @@ On the personal side, I embrace differences among peoples and care to make a low
 }
 
 \section{\textsc{Technical Skills}}
-\cvitem{Languages (Proficient)}{ Javascript (nodejs, ES6, Babel) }
-\cvitem{Languages (Basic)}{Go, C, C++, Python, Ruby, SQL, Bash scripting, Lua}
-\cvitem{Cloud Services}{AWS, GCP}
+\cvitem{Proficient}{ JavaScript (nodejs, ES2015 et al), Bash, Go }
+\cvitem{Can Navigate}{ C, C++, Python, Ruby, SQL, Lua}
+\cvitem{Cloud}{AWS, GCP}
 \cvitem{Orchestration}{Docker, Kubernetes, Kubespray, Ansible, EKS}
 \cvitem{Infrastructure Tools}{Nginx, Terraform, Letsencrypt/ACME, Jenkins, Spinnaker}
-\cvitem{Productivity}{Dropbox Paper, Keynote, Microsoft Office, \LaTeX2e}
+\cvitem{Databases}{PostgreSQL, DynamoDB, MongoDB}
+\cvitem{Database Tools}{Mongoose, Liquibase}
+\cvitem{Productivity}{Dropbox Paper, Keynote, Microsoft Office, \LaTeX2e, Jira, Confluence, Lucidchart}
 \cvitem{Misc}{gRPC, protobuf, istio, envoy}
 
 \newpage
 \section{\textsc{Work Experience}}
 
 \cventry{April 2019 -- March 2020}{Platform Engineer}{Lucky Day Entertainment}{Beverly Hills, CA (Remote)}{}{
+  \vspace{\baselineskip}
+  Performed the following for a fintech product startup:
   \begin{itemize}
-  \item Rolled out passwordless auth using AWS cognito and helped Android engineers implement the custom auth mechanism
-  \item Participated in code-reviews on all fronts (mobile and backend) until the team sized up enough to free me of these duties
-  \item Designed and implemented the deployment strategy for containerized workloads
-  \item Informed wireformat (protobuf) strategy for mobile app's communication to the backend (written in go)
-  \item Wrote automation to generate proto packages for Java, Swift and Go in Jenkins CI and autogenerate and maintain github repos using hub/repo-templates
-  \item Worked on spinnaker deployments for continuous delivery from AWS ECR, and delivered a working solution to developers and testers
-  \item Worked on KYC implementation in go using CognitoHQ API (my only real coding work while at this org)
-  \item Worked with SRE personnel in establishing all needs are met for containerized workloads. Rolled out use of kustomize for the same.
-  \item Informed the private CA / PKI based decisions to have the internal tools use an internal TLD thus having all internal communications be TLS secured.
-  \item Rolled out bazel strategy on CI for golang/nodejs projects
-  \item Initially rolled out heptio/contour as our ingress gateway with Letsencrypt support to expose gRPC services publicly for the mobile app
-  \item Helped in rollout of istio/ingress-gateway which replaced heptio/contour as our ingress
-  \item Provisioned AWS MSK as a working Kafka for development team using TLS auth, until the team switched to pulsar
+    \vspace{\baselineskip}
+    \item Application Development
+      \begin{itemize}
+        \item Implemented passwordless auth using AWS cognito and helped Android engineers implement the custom auth mechanism
+        \item Implemented a gRPC mockserver atop malijs to replace our use of gripmock (a go based solution)
+        \item Implemented a KYC solution in go using CognitoHQ APIs
+        \item Implemented a slack bot for helping development teams with passwordless login
+      \end{itemize}
+    \vspace{\baselineskip}
+    \item DevOps
+      \begin{itemize}
+        \item Informed decisions made on wireformat (protobuf) strategy
+        \item Implemented automation to generate proto packages for Java, Swift and Go in Jenkins CI and autogenerate and auto-maintain github repos using hub/repo-templates
+        \item Implemented spinnaker deployments for continuous delivery from AWS ECR, and delivered a working solution to developers and testers
+        \item Worked with SRE personnel in ensuring all needs are met for containerized workloads running in kubernetes
+        \item Helped the team adopt Kustomize for all kubernetes app deployments
+        \item Helped the team adopt bazel for building golang/nodejs projects locally and on CI
+        \item Implemented all the CI pipelines as source (Jenkinsfiles)
+      \end{itemize}
+    \item Security
+    \begin{itemize}
+      \item Helped make private CA / PKI based decisions, and ran all internal tools using an internal TLD; thus having communications be TLS encrypted
+      \item Rolled out heptio/contour as our ingress gateway with Letsencrypt support to expose gRPC services publicly for the mobile app consumption
+      \item Helped in rollout of istio/ingress-gateway which replaced heptio/contour as our ingress
+      \item Provisioned AWS MSK as a working Kafka for development team using TLS auth, until the team switched to pulsar
+    \end{itemize}
   \end{itemize}
 }
+\vspace{\baselineskip}
 
 \cventry{May 2017 -- April 2019}{Software Engineer}{Ace Caliber LLC.}{Washington D.C. (Remote)}{}{
   \begin{itemize}
   \vspace{\baselineskip}
   \item Asurity Technologies, Inc. \hfill \textit{May 2017 -- Apr 2019}
     \begin{itemize}
-			\item Performed fullstack work on mapping frontend apps powered by mapnik in the backend (nodejs) in the RegTech industry
+			\item Performed fullstack work on mapping frontend apps powered by mapnik in the backend (nodejs) for the RegTech industry
 			\item Designed and implemented the CI/CD pipeline for these apps in docker/kubernetes running on on-prem infrastructure in vSphere
       \item Terraformed the vSphere resources and applied jssonnet to get beyond any terraform limitations at the timelines
       \item Used kubespray extensively in maintaining and upgrading the on-prem k8s clusters
@@ -113,7 +138,9 @@ On the personal side, I embrace differences among peoples and care to make a low
   \end{itemize}
 }
 
-\cventry{Aug 2015 -- Apr 2017}{CEO, Principal Consultant}{Human Flow S.C.}{S Portland, ME}{}{
+\newpage
+
+\cventry{Aug 2015 -- Apr 2017}{CEO, Principal Consultant}{Human Flow S.C.}{Portland, ME (Remote)}{}{
 \begin{itemize}
 	\vspace{\baselineskip}
 	\item AceCaliber LLC. \hfill \textit{Feb 2017 -- Apr 2017}
@@ -154,7 +181,7 @@ On the personal side, I embrace differences among peoples and care to make a low
 
 \vspace{\baselineskip}
 
-\cventry{Mar 2014 -- April 2015}{Software Engineer}{City Corridor}{Charleston, S Carolina}{}{
+\cventry{Mar 2014 -- April 2015}{Software Engineer}{City Corridor}{Charleston, S Carolina (Remote)}{}{
 \begin{itemize}
 		\item Lead frontend engineering for a secure distributed sales and advertising kiosk platform
 		\begin{itemize}
@@ -168,7 +195,7 @@ On the personal side, I embrace differences among peoples and care to make a low
 \end{itemize}
 }
 
-\newpage
+\vspace{\baselineskip}
 
 \cventry{May 2013 -- Sep 2013}{Systems Engineer}{Blizzard Entertainment}{Irvine, CA}{}{
 \begin{itemize}
@@ -177,7 +204,7 @@ On the personal side, I embrace differences among peoples and care to make a low
 \end{itemize}
 }
 
-\vspace{\baselineskip}
+\newpage
 
 \cventry{Jan 2012 -- Apr 2013}{Embedded Software Engineer}{Teradek}{Irvine, CA}{}{
 \begin{itemize}
@@ -190,6 +217,7 @@ On the personal side, I embrace differences among peoples and care to make a low
 }
 
 \vspace{\baselineskip}
+
 
 \cventry{Mar 2011 -- Jan 2012}{Consultant}{Intel Corp.}{Chandler, AZ}{}{
 \begin{itemize}
